@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hongao-develop
+spec:
+  containers:
+    - name: debug-container
+      image: condaforge/mambaforge
+      command:
+      - /bin/bash
+      - -c
+      args:
+      - |
+        apt-get update && apt-get install -y git openssh-client zip && rm -rf /var/lib/apt/lists/* && \
+        mkdir -p /root/.ssh && \
+        echo "$ID_RSA" > /root/.ssh/id_rsa && \
+        chmod 600 /root/.ssh/id_rsa && \
+        ssh-keyscan github.com >> /root/.ssh/known_hosts && \
+        git clone git@github.com:Hongao0611/LIGN211-Phonology.git /app/code && \
+        echo "Ready for development:)" && \
+        sleep infinity
+      env:
+      - name: ID_RSA
+        valueFrom:
+          secretKeyRef:
+            name: hongao-secret
+            key: id_rsa
+      volumeMounts:
+        - mountPath: /app/code
+          name: storage-volume
+        - mountPath: /dev/shm
+          name: dshm
+      resources:
+        requests:
+          nvidia.com/gpu: "1"
+          cpu: "4"
+          memory: "32Gi"
+        limits:
+          nvidia.com/gpu: "1"
+          cpu: "4"
+          memory: "32Gi"
+  volumes:
+    - name: storage-volume
+      emptyDir:
+        medium: Memory
+        sizeLimit: 100Gi
+    - name: dshm
+      emptyDir:
+        medium: Memory
+        sizeLimit: 1Gi
+  restartPolicy: Never
