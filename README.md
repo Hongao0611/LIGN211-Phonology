@@ -22,6 +22,10 @@
 - `debug.py` check if we can find a specific utterance by its ID in the lexicon file provided
 - `get_unique_lexicon.py` calculate `lexicon_unique.txt` from `lexicon.txt`
 - `get_f0.py` calculate f0 values from the .wav files, drawing from the transcript and automatically running force-alignment
+- `feature2vec_baseline.py` represent all segments in `transcript.txt` by one-hot vectors
+- `feature2vec_GloVe.py` represent all segments in `transcript.txt` by GolVe vectors
+
+**Vectors:** calculated vector representations of segments
 
 ### Usage
 Make sure you have `conda` in your system and run `conda env create -f environment.yml` to set up an environment with necessary dependencies.
@@ -30,7 +34,10 @@ Then, run `conda activate mfa_env` to launch the environment.
 
 I recommended using `python script/get_f0.py --help` to see the available parameters for extracting F0 before running the script itself.
 
+Run `python script/feature2vec_baseline.py` to get interpretable, baseline vectors.
+
+Run `python script/feature2vec_baseline.py` to get interpretable, baseline vectors.
+
 ### TODO
-- Script for feature2vec
 - Script for MLP models
 - Script for Regression
