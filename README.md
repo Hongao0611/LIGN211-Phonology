@@ -1,0 +1,36 @@
+# Information distribution over Mandarin lexical tone
+
+### Research questions
+- RQ1: How informative are segmental cues (syllable identity without tones) about tone category?
+- RQ2: How much information about tone is provided by prosodic cues given segmental identity?
+
+### Data
+[AISHELL-ASR0009-OS1 Open Source Mandarin Speech Corpus](https://www.aishelltech.com/kysjcp)
+
+### Directory structure
+**Doc:** Corpus documents and derived summary data
+- `transcript.txt` transcripts of all recordings, each line starts with the file's ID and then the words of the sentence (e.g. *BAC009S0663W0430 爸爸 剪短 发*)
+- `speaker.txt` gender of speakers, each line represents one speaker (e.g. *0002 M*)
+- `lexicon.txt` vocabulary of the dataset, each line represents a word and its syllables (e.g. *奥运会 aa ao4 vv vn4 h ui4*)
+- `lexicon_unique.txt` frequency of every segment that occurred in the corpus (e.g. *a1 5222*)
+
+**Wav:** `.wav` format recording files, organized by train/dev/test split and by participant
+
+**F0:** `.json` format F0 contour files, organized by train/dev/test split and by participant
+
+**Script:** scripts for extracting F0, running MLP and regression models
+- `debug.py` check if we can find a specific utterance by its ID in the lexicon file provided
+- `get_unique_lexicon.py` calculate `lexicon_unique.txt` from `lexicon.txt`
+- `get_f0.py` calculate f0 values from the .wav files, drawing from the transcript and automatically running force-alignment
+
+### Usage
+Make sure you have `conda` in your system and run `conda env create -f environment.yml` to set up an environment with necessary dependencies.
+
+Then, run `conda activate mfa_env` to launch the environment.
+
+I recommended using `python script/get_f0.py --help` to see the available parameters for extracting F0 before running the script itself.
+
+### TODO
+- Script for feature2vec
+- Script for MLP models
+- Script for Regression
