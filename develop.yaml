@@ -17,6 +17,7 @@ spec:
         chmod 600 /root/.ssh/id_rsa && \
         ssh-keyscan github.com >> /root/.ssh/known_hosts && \
         git clone git@github.com:Hongao0611/LIGN211-Phonology.git /app/code && \
+        pip install numpy torch scikit-learn && \
         echo "Ready for development:)" && \
         sleep infinity
       env:
