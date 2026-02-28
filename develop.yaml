@@ -3,6 +3,19 @@ kind: Pod
 metadata:
   name: hongao-develop
 spec:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+          - matchExpressions:
+              - key: nvidia.com/gpu.product
+                operator: In
+                values:
+                  - NVIDIA-GeForce-RTX-3090
+              - key: nvidia.com/cuda.runtime.major
+                operator: In
+                values:
+                  - "13"
   containers:
     - name: debug-container
       image: condaforge/mambaforge

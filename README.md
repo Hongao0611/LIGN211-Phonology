@@ -24,6 +24,9 @@
 - `get_f0.py` calculate f0 values from the .wav files, drawing from the transcript and automatically running force-alignment
 - `feature2vec_baseline.py` represent all segments in `transcript.txt` by one-hot vectors
 - `feature2vec_GloVe.py` represent all segments in `transcript.txt` by GolVe vectors
+- `classifier.py` train MLP models for tone category classification
+- `regression.py` run logistics regression for tone category classification
+
 
 **Vectors:** calculated vector representations of segments
 
@@ -36,8 +39,15 @@ I recommended using `python script/get_f0.py --help` to see the available parame
 
 Run `python script/feature2vec_baseline.py` to get interpretable, baseline vectors.
 
-Run `python script/feature2vec_baseline.py` to get interpretable, baseline vectors.
+Run `python script/feature2vec_Glove.py` to get uninterpretable, GloVe-style vectors.
 
-### TODO
-- Script for MLP models
-- Script for Regression
+Run `python script/classifier.py --help` to look at available arguments.
+- `python script/classifier.py` by default runs the baseline model
+- `python script/classifier.py --seg-vectors vectors/GloVe_24.txt` runs the GloVe-style vector with fixed length of 24, matching the length of the baseline vectors
+- `python script/classifier.py --seg-vectors vectors/GloVe.txt` runs the GloVe-style vector with fixed length of 300, matching the length of the GloVe vectors (which we assumes to be the best static representation we can have)
+
+Run `python script/regression.py --help` to look at available arguments.
+- `python script/regression.py` by default runs the regression model with baseline, one-hot vectors as predictors
+- `python script/regression.py --seg-vectors vectors/GloVe_24.txt` runs the regression model with GloVe-style vectors (length of 24) as predictors
+- `python script/regression.py --seg-vectors vectors/GloVe.txt` runs the regression model with GloVe-style vectors (length of 300) as predictors
+
