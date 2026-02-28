@@ -131,16 +131,14 @@ def main():
         # Select best C on dev set
         best_C, best_loss = None, float('inf')
         for C in args.C_values:
-            model = LogisticRegression(multi_class='multinomial', solver='lbfgs', 
-                                       C=C, max_iter=1000, random_state=args.seed)
+            model = LogisticRegression(solver='lbfgs', C=C, max_iter=1000, random_state=args.seed)
             model.fit(X_train_s, y_train)
             dev_loss = log_loss(y_dev, model.predict_proba(X_dev_s))
             if dev_loss < best_loss:
                 best_C, best_loss = C, dev_loss
         
         # Train final model
-        model = LogisticRegression(multi_class='multinomial', solver='lbfgs',
-                                   C=best_C, max_iter=1000, random_state=args.seed)
+        model = LogisticRegression(solver='lbfgs', C=best_C, max_iter=1000, random_state=args.seed)
         model.fit(X_train_s, y_train)
         
         test_probs = model.predict_proba(X_test_s)
