@@ -51,3 +51,6 @@ Run `python script/regression.py --help` to look at available arguments.
 - `python script/regression.py --seg-vectors vectors/GloVe_24.txt` runs the regression model with GloVe-style vectors (length of 24) as predictors
 - `python script/regression.py --seg-vectors vectors/GloVe.txt` runs the regression model with GloVe-style vectors (length of 300) as predictors
 
+### TODO
+- exclude instances where the contour is all 0; this could have spoiled the preliminary results
+- enable F0 sampling at higher rates; I am highly skeptical about the prosodic channel underperforming the segmental channel and my take would be that the segmental information was better represented (though intuitively, I thought prosodic prediction was a much easier task).
