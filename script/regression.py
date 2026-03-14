@@ -59,16 +59,21 @@ def load_samples(f0_files, seg_emb, f0_length=20):
                 data = json.load(f)
         except:
             continue
-        
         for char_data in data:
             for vowel in char_data.get('vowels', []):
                 tone = extract_tone(vowel['phone'])
                 if tone is None:
+                    continue             
+                # Extract the F0 dictionary (using the script's current expected schema)
+                f0_data = vowel.get('f0', {}) 
+                contour = f0_data.get('contour', [])
+                # --- EXCLUSION LOGIC ---
+                # Skip if 'mean' is null, contour is missing, or contour is completely unvoiced (all 0.0)
+                if f0_data.get('mean') is None or not contour or not any(v > 0 for v in contour):
                     continue
-                
                 base = strip_tone(vowel['phone'])
                 X_seg.append(seg_emb.get(base, np.zeros(seg_dim, dtype=np.float32)))
-                X_pros.append(resample_f0(vowel.get('f0', {}).get('contour', []), f0_length))
+                X_pros.append(resample_f0(contour, f0_length))
                 y.append(tone - 1)
     
     return np.array(X_seg), np.array(X_pros), np.array(y)

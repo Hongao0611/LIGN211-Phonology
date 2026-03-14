@@ -95,10 +95,18 @@ class ToneDataset(Dataset):
                     if tone is None:
                         continue
                     
+                    # Extract the F0 dictionary
+                    f0_data = vowel.get('f0', {})
+                    contour = f0_data.get('contour', [])
+                    
+                    # --- EXCLUSION LOGIC ---
+                    # Skip if 'mean' is null, contour is missing, or contour is completely unvoiced (all 0.0)
+                    if f0_data.get('mean') is None or not contour or not any(v > 0 for v in contour):
+                        continue
+                    
                     base = strip_tone(phone)
                     seg_vec = seg_embeddings.get(base, np.zeros(self.seg_dim, dtype=np.float32))
                     
-                    contour = vowel.get('f0', {}).get('contour', [])
                     f0_vec = normalize_f0(resample_f0(contour, f0_length))
                     
                     self.samples.append({
@@ -106,7 +114,7 @@ class ToneDataset(Dataset):
                     })
         
         logger.info(f"Loaded {len(self.samples)} samples")
-    
+
     def __len__(self):
         return len(self.samples)
     
@@ -123,7 +131,6 @@ class ToneDataset(Dataset):
     def input_dim(self):
         return (self.seg_dim if self.include_seg else 0) + \
                (self.f0_length if self.include_pros else 0)
-
 
 class ToneClassifier(nn.Module):
     def __init__(self, input_dim, hidden_dims=[128, 64], dropout=0.3):
