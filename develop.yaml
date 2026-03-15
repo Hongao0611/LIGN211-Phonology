@@ -33,10 +33,10 @@ spec:
         pip install numpy torch scikit-learn && \
         echo "Ready for development:)" && \
         cd /app/code && \
-        python script/classifier2.py --output /mnt/pvc/classifier-baseline.json > /mnt/pvc/classifier-baseline.log 2>&1 && \
-        python script/classifier2.py --seg-vectors vectors/GloVe_24.txt --output /mnt/pvc/classifier-GloVe24.json > /mnt/pvc/classifier-GloVe24.log 2>&1 && \
-        python script/classifier2.py --seg-vectors vectors/GloVe.txt --output /mnt/pvc/classifier-GloVe.json > /mnt/pvc/classifier-GloVe.log 2>&1 && \
-        echo "Success!"
+        # python script/classifier2.py --output /mnt/pvc/classifier-baseline.json > /mnt/pvc/classifier-baseline.log 2>&1 && \
+        # python script/classifier2.py --seg-vectors vectors/GloVe_24.txt --output /mnt/pvc/classifier-GloVe24.json > /mnt/pvc/classifier-GloVe24.log 2>&1 && \
+        # python script/classifier2.py --seg-vectors vectors/GloVe.txt --output /mnt/pvc/classifier-GloVe.json > /mnt/pvc/classifier-GloVe.log 2>&1 && \
+        sleep infinity
       env:
       - name: ID_RSA
         valueFrom:
