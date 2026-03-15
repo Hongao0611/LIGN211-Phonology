@@ -25,6 +25,7 @@
 - `feature2vec_baseline.py` represent all segments in `transcript.txt` by one-hot vectors
 - `feature2vec_GloVe.py` represent all segments in `transcript.txt` by GolVe vectors
 - `classifier.py` train MLP models for tone category classification
+- `classifier.py` train LSTM models for tone category classification
 - `regression.py` run logistics regression for tone category classification
 
 
