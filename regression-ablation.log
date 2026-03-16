@@ -1,0 +1,55 @@
+2026-03-16 21:36:59,119 - INFO - Loading data...
+2026-03-16 21:38:50,774 - INFO - Samples: train=883911, dev=111925, test=109594
+2026-03-16 21:38:50,859 - INFO - 
+========================================
+Training SEGMENTAL model
+========================================
+2026-03-16 21:39:51,278 - INFO - [SEGMENTAL] NLL=1.0319, Acc=0.5068, C=10.0
+2026-03-16 21:39:51,278 - INFO - 
+========================================
+Training PROSODIC model
+========================================
+2026-03-16 21:44:26,565 - INFO - [PROSODIC] NLL=0.9909, Acc=0.5369, C=10.0
+2026-03-16 21:44:26,565 - INFO - 
+========================================
+Training COMBINED model
+========================================
+2026-03-16 21:49:30,615 - INFO - [COMBINED] NLL=0.9814, Acc=0.5550, C=0.01
+2026-03-16 21:49:30,615 - INFO - 
+========================================
+SUMMARY
+========================================
+2026-03-16 21:49:30,615 - INFO - segmental    | NLL: 1.0319 | Acc: 0.5068
+2026-03-16 21:49:30,615 - INFO - prosodic     | NLL: 0.9909 | Acc: 0.5369
+2026-03-16 21:49:30,615 - INFO - combined     | NLL: 0.9814 | Acc: 0.5550
+2026-03-16 21:49:30,615 - INFO - 
+I(Y;P|S) = 0.0505 nats (prosody beyond segmental)
+2026-03-16 21:49:30,615 - INFO - I(Y;S|P) = 0.0095 nats (segmental beyond prosody)
+2026-03-16 21:49:30,615 - INFO - 
+========================================
+FEATURE ABLATION (DLL)
+========================================
+2026-03-16 21:50:28,013 - INFO - Ablated Dim_0  | DLL_Seg: +0.0000 | DLL_Comb: +0.0000
+2026-03-16 21:50:28,154 - INFO - Ablated Dim_1  | DLL_Seg: +0.0000 | DLL_Comb: +0.0000
+2026-03-16 21:50:28,290 - INFO - Ablated Dim_2  | DLL_Seg: +0.0000 | DLL_Comb: +0.0000
+2026-03-16 21:50:28,435 - INFO - Ablated Dim_3  | DLL_Seg: +0.0000 | DLL_Comb: +0.0000
+2026-03-16 21:50:28,575 - INFO - Ablated Dim_4  | DLL_Seg: +0.0000 | DLL_Comb: +0.0000
+2026-03-16 21:50:28,718 - INFO - Ablated Dim_5  | DLL_Seg: +0.0000 | DLL_Comb: +0.0000
+2026-03-16 21:50:28,857 - INFO - Ablated Dim_6  | DLL_Seg: +0.0000 | DLL_Comb: +0.0000
+2026-03-16 21:50:29,008 - INFO - Ablated Dim_7  | DLL_Seg: +0.0000 | DLL_Comb: +0.0000
+2026-03-16 21:50:29,221 - INFO - Ablated Dim_8  | DLL_Seg: +0.0000 | DLL_Comb: +0.0000
+2026-03-16 21:50:29,340 - INFO - Ablated Dim_9  | DLL_Seg: +0.0000 | DLL_Comb: +0.0000
+2026-03-16 21:50:29,476 - INFO - Ablated Dim_10 | DLL_Seg: +0.0000 | DLL_Comb: +0.0000
+2026-03-16 21:50:29,718 - INFO - Ablated Dim_11 | DLL_Seg: +0.0000 | DLL_Comb: +0.0000
+2026-03-16 21:50:29,849 - INFO - Ablated Dim_12 | DLL_Seg: +0.0000 | DLL_Comb: +0.0000
+2026-03-16 21:50:30,067 - INFO - Ablated Dim_13 | DLL_Seg: +0.0000 | DLL_Comb: +0.0000
+2026-03-16 21:50:30,313 - INFO - Ablated Dim_14 | DLL_Seg: +0.0000 | DLL_Comb: +0.0000
+2026-03-16 21:50:30,493 - INFO - Ablated Dim_15 | DLL_Seg: +0.0016 | DLL_Comb: +0.0018
+2026-03-16 21:50:30,625 - INFO - Ablated Dim_16 | DLL_Seg: +0.0030 | DLL_Comb: +0.0027
+2026-03-16 21:50:30,845 - INFO - Ablated Dim_17 | DLL_Seg: +0.0008 | DLL_Comb: +0.0007
+2026-03-16 21:50:31,014 - INFO - Ablated Dim_18 | DLL_Seg: +0.0006 | DLL_Comb: +0.0006
+2026-03-16 21:50:31,205 - INFO - Ablated Dim_19 | DLL_Seg: +0.0008 | DLL_Comb: +0.0007
+2026-03-16 21:50:31,348 - INFO - Ablated Dim_20 | DLL_Seg: +0.0005 | DLL_Comb: +0.0002
+2026-03-16 21:50:31,507 - INFO - Ablated Dim_21 | DLL_Seg: +0.0026 | DLL_Comb: +0.0026
+2026-03-16 21:50:31,629 - INFO - Ablated Dim_22 | DLL_Seg: +0.0000 | DLL_Comb: +0.0000
+2026-03-16 21:50:31,759 - INFO - Ablated Dim_23 | DLL_Seg: +0.0000 | DLL_Comb: +0.0000
