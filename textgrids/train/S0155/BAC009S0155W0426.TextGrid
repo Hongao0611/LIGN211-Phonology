@@ -1,0 +1,96 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 2.232937 
+tiers? <exists> 
+size = 2 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "words" 
+        xmin = 0 
+        xmax = 2.232937 
+        intervals: size = 8 
+        intervals [1]:
+            xmin = 0.0 
+            xmax = 0.53 
+            text = "" 
+        intervals [2]:
+            xmin = 0.53 
+            xmax = 0.7 
+            text = "周" 
+        intervals [3]:
+            xmin = 0.7 
+            xmax = 0.98 
+            text = "嫂" 
+        intervals [4]:
+            xmin = 0.98 
+            xmax = 1.04 
+            text = "" 
+        intervals [5]:
+            xmin = 1.04 
+            xmax = 1.41 
+            text = "昆" 
+        intervals [6]:
+            xmin = 1.41 
+            xmax = 1.63 
+            text = "凌生" 
+        intervals [7]:
+            xmin = 1.63 
+            xmax = 1.8 
+            text = "了" 
+        intervals [8]:
+            xmin = 1.8 
+            xmax = 2.232937 
+            text = "" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "phones" 
+        xmin = 0 
+        xmax = 2.232937 
+        intervals: size = 11 
+        intervals [1]:
+            xmin = 0.0 
+            xmax = 0.53 
+            text = "" 
+        intervals [2]:
+            xmin = 0.53 
+            xmax = 0.7 
+            text = "spn" 
+        intervals [3]:
+            xmin = 0.7 
+            xmax = 0.78 
+            text = "s" 
+        intervals [4]:
+            xmin = 0.78 
+            xmax = 0.98 
+            text = "aw˨˩˦" 
+        intervals [5]:
+            xmin = 0.98 
+            xmax = 1.04 
+            text = "" 
+        intervals [6]:
+            xmin = 1.04 
+            xmax = 1.41 
+            text = "spn" 
+        intervals [7]:
+            xmin = 1.41 
+            xmax = 1.63 
+            text = "spn" 
+        intervals [8]:
+            xmin = 1.63 
+            xmax = 1.66 
+            text = "l" 
+        intervals [9]:
+            xmin = 1.66 
+            xmax = 1.7 
+            text = "j" 
+        intervals [10]:
+            xmin = 1.7 
+            xmax = 1.8 
+            text = "aw˨˩˦" 
+        intervals [11]:
+            xmin = 1.8 
+            xmax = 2.232937 
+            text = "" 

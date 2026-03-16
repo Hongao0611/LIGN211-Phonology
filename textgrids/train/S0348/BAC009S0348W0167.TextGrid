@@ -1,0 +1,88 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 2.935938 
+tiers? <exists> 
+size = 2 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "words" 
+        xmin = 0 
+        xmax = 2.935938 
+        intervals: size = 7 
+        intervals [1]:
+            xmin = 0.0 
+            xmax = 0.51 
+            text = "" 
+        intervals [2]:
+            xmin = 0.51 
+            xmax = 0.54 
+            text = "<unk>" 
+        intervals [3]:
+            xmin = 0.54 
+            xmax = 0.88 
+            text = "" 
+        intervals [4]:
+            xmin = 0.88 
+            xmax = 1.54 
+            text = "一" 
+        intervals [5]:
+            xmin = 1.54 
+            xmax = 1.77 
+            text = "日" 
+        intervals [6]:
+            xmin = 1.77 
+            xmax = 2.27 
+            text = "上午" 
+        intervals [7]:
+            xmin = 2.27 
+            xmax = 2.935938 
+            text = "" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "phones" 
+        xmin = 0 
+        xmax = 2.935938 
+        intervals: size = 10 
+        intervals [1]:
+            xmin = 0.0 
+            xmax = 0.51 
+            text = "" 
+        intervals [2]:
+            xmin = 0.51 
+            xmax = 0.54 
+            text = "spn" 
+        intervals [3]:
+            xmin = 0.54 
+            xmax = 0.88 
+            text = "" 
+        intervals [4]:
+            xmin = 0.88 
+            xmax = 1.54 
+            text = "spn" 
+        intervals [5]:
+            xmin = 1.54 
+            xmax = 1.77 
+            text = "ʐ̩˥˩" 
+        intervals [6]:
+            xmin = 1.77 
+            xmax = 1.9 
+            text = "ʂ" 
+        intervals [7]:
+            xmin = 1.9 
+            xmax = 1.97 
+            text = "a˥˩" 
+        intervals [8]:
+            xmin = 1.97 
+            xmax = 2.13 
+            text = "ŋ" 
+        intervals [9]:
+            xmin = 2.13 
+            xmax = 2.27 
+            text = "u˨˩˦" 
+        intervals [10]:
+            xmin = 2.27 
+            xmax = 2.935938 
+            text = "" 

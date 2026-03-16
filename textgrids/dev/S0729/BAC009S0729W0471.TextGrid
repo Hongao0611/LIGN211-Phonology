@@ -1,0 +1,164 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 7.645 
+tiers? <exists> 
+size = 2 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "words" 
+        xmin = 0 
+        xmax = 7.645 
+        intervals: size = 13 
+        intervals [1]:
+            xmin = 0.0 
+            xmax = 0.52 
+            text = "" 
+        intervals [2]:
+            xmin = 0.52 
+            xmax = 1.25 
+            text = "<unk>" 
+        intervals [3]:
+            xmin = 1.25 
+            xmax = 1.63 
+            text = "<unk>" 
+        intervals [4]:
+            xmin = 1.63 
+            xmax = 3.01 
+            text = "" 
+        intervals [5]:
+            xmin = 3.01 
+            xmax = 3.52 
+            text = "还" 
+        intervals [6]:
+            xmin = 3.52 
+            xmax = 4.34 
+            text = "交城" 
+        intervals [7]:
+            xmin = 4.34 
+            xmax = 4.83 
+            text = "镇" 
+        intervals [8]:
+            xmin = 4.83 
+            xmax = 5.08 
+            text = "" 
+        intervals [9]:
+            xmin = 5.08 
+            xmax = 5.77 
+            text = "居民" 
+        intervals [10]:
+            xmin = 5.77 
+            xmax = 6.23 
+            text = "" 
+        intervals [11]:
+            xmin = 6.23 
+            xmax = 6.61 
+            text = "医疗" 
+        intervals [12]:
+            xmin = 6.61 
+            xmax = 7.18 
+            text = "保险" 
+        intervals [13]:
+            xmin = 7.18 
+            xmax = 7.645 
+            text = "" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "phones" 
+        xmin = 0 
+        xmax = 7.645 
+        intervals: size = 23 
+        intervals [1]:
+            xmin = 0.0 
+            xmax = 0.52 
+            text = "" 
+        intervals [2]:
+            xmin = 0.52 
+            xmax = 1.25 
+            text = "spn" 
+        intervals [3]:
+            xmin = 1.25 
+            xmax = 1.63 
+            text = "spn" 
+        intervals [4]:
+            xmin = 1.63 
+            xmax = 3.01 
+            text = "" 
+        intervals [5]:
+            xmin = 3.01 
+            xmax = 3.14 
+            text = "x" 
+        intervals [6]:
+            xmin = 3.14 
+            xmax = 3.16 
+            text = "w" 
+        intervals [7]:
+            xmin = 3.16 
+            xmax = 3.27 
+            text = "a˧˥" 
+        intervals [8]:
+            xmin = 3.27 
+            xmax = 3.52 
+            text = "n" 
+        intervals [9]:
+            xmin = 3.52 
+            xmax = 4.34 
+            text = "spn" 
+        intervals [10]:
+            xmin = 4.34 
+            xmax = 4.4 
+            text = "ʈʂ" 
+        intervals [11]:
+            xmin = 4.4 
+            xmax = 4.57 
+            text = "ə˥˩" 
+        intervals [12]:
+            xmin = 4.57 
+            xmax = 4.83 
+            text = "n" 
+        intervals [13]:
+            xmin = 4.83 
+            xmax = 5.08 
+            text = "" 
+        intervals [14]:
+            xmin = 5.08 
+            xmax = 5.77 
+            text = "spn" 
+        intervals [15]:
+            xmin = 5.77 
+            xmax = 6.23 
+            text = "" 
+        intervals [16]:
+            xmin = 6.23 
+            xmax = 6.61 
+            text = "spn" 
+        intervals [17]:
+            xmin = 6.61 
+            xmax = 6.68 
+            text = "p" 
+        intervals [18]:
+            xmin = 6.68 
+            xmax = 6.81 
+            text = "aw˨˩˦" 
+        intervals [19]:
+            xmin = 6.81 
+            xmax = 6.91 
+            text = "ɕ" 
+        intervals [20]:
+            xmin = 6.91 
+            xmax = 6.95 
+            text = "j" 
+        intervals [21]:
+            xmin = 6.95 
+            xmax = 7.0 
+            text = "e˨˩˦" 
+        intervals [22]:
+            xmin = 7.0 
+            xmax = 7.18 
+            text = "n" 
+        intervals [23]:
+            xmin = 7.18 
+            xmax = 7.645 
+            text = "" 

@@ -1,0 +1,88 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 2.849 
+tiers? <exists> 
+size = 2 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "words" 
+        xmin = 0 
+        xmax = 2.849 
+        intervals: size = 7 
+        intervals [1]:
+            xmin = 0.0 
+            xmax = 0.5 
+            text = "" 
+        intervals [2]:
+            xmin = 0.5 
+            xmax = 1.25 
+            text = "提高" 
+        intervals [3]:
+            xmin = 1.25 
+            xmax = 1.51 
+            text = "到" 
+        intervals [4]:
+            xmin = 1.51 
+            xmax = 1.71 
+            text = "五" 
+        intervals [5]:
+            xmin = 1.71 
+            xmax = 2.19 
+            text = "千" 
+        intervals [6]:
+            xmin = 2.19 
+            xmax = 2.29 
+            text = "元" 
+        intervals [7]:
+            xmin = 2.29 
+            xmax = 2.849 
+            text = "" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "phones" 
+        xmin = 0 
+        xmax = 2.849 
+        intervals: size = 10 
+        intervals [1]:
+            xmin = 0.0 
+            xmax = 0.5 
+            text = "" 
+        intervals [2]:
+            xmin = 0.5 
+            xmax = 1.25 
+            text = "spn" 
+        intervals [3]:
+            xmin = 1.25 
+            xmax = 1.31 
+            text = "t" 
+        intervals [4]:
+            xmin = 1.31 
+            xmax = 1.51 
+            text = "aw˥˩" 
+        intervals [5]:
+            xmin = 1.51 
+            xmax = 1.71 
+            text = "u˨˩˦" 
+        intervals [6]:
+            xmin = 1.71 
+            xmax = 2.19 
+            text = "spn" 
+        intervals [7]:
+            xmin = 2.19 
+            xmax = 2.22 
+            text = "ɥ" 
+        intervals [8]:
+            xmin = 2.22 
+            xmax = 2.25 
+            text = "e˧˥" 
+        intervals [9]:
+            xmin = 2.25 
+            xmax = 2.29 
+            text = "n" 
+        intervals [10]:
+            xmin = 2.29 
+            xmax = 2.849 
+            text = "" 

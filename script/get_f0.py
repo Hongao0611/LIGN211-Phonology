@@ -8,6 +8,7 @@ from parselmouth.praat import call
 from dataclasses import dataclass
 from typing import List, Dict, Tuple
 from tqdm import tqdm
+import textgrid
 
 @dataclass
 class AlignedSegment:
@@ -181,95 +182,38 @@ class AishellF0Extractor:
         }
 
 
-class CharacterLevelAligner:
-    """Align at character level (single Chinese character = single syllable)."""
+def parse_mfa_textgrid(textgrid_path: str, silence_marks: set = {'', 'sp', 'sil', 'spn'}) -> Tuple[List[Dict], List[AlignedSegment]]:
+    """
+    Parses an MFA TextGrid file and extracts precise acoustic alignments.
+    Returns character-level and phone-level alignments.
+    """
+    tg = textgrid.TextGrid.fromFile(textgrid_path)
     
-    CONSONANT_WEIGHT = 0.3
-    VOWEL_WEIGHT = 1.0
+    # MFA typically outputs two tiers: 'words' (characters in Mandarin) and 'phones'
+    words_tier = tg.getFirst('words')
+    phones_tier = tg.getFirst('phones')
     
-    def __init__(self, extractor: AishellF0Extractor):
-        self.extractor = extractor
-    
-    def align_characters(self, words: List[str], total_duration: float,
-                         start_offset: float = 0.0) -> Tuple[List[AlignedSegment], List[Tuple[str, List[str]]]]:
-        """
-        Split all words into characters and align each character.
-        Returns (alignments, char_phones_list).
-        """
-        # Flatten words to characters with phones
-        all_chars = []
-        for word in words:
-            char_phones_list = self.extractor.split_word_to_characters(word)
-            all_chars.extend(char_phones_list)
-        
-        if not all_chars:
-            return [], []
-        
-        # Calculate weight for each character
-        char_weights = []
-        for char, phones in all_chars:
-            weight = 0
-            for p in phones:
-                if p in self.extractor.silence or p == '<unk>':
-                    continue
-                elif self.extractor.is_vowel(p):
-                    weight += self.VOWEL_WEIGHT
-                else:
-                    weight += self.CONSONANT_WEIGHT
-            char_weights.append(max(weight, 0.3))
-        
-        total_weight = sum(char_weights)
-        
-        # Distribute time
-        aligned = []
-        current_time = start_offset
-        
-        for (char, phones), weight in zip(all_chars, char_weights):
-            char_duration = (weight / total_weight) * total_duration
-            aligned.append(AlignedSegment(
-                text=char,
-                start=current_time,
-                end=current_time + char_duration
+    char_alignments = []
+    for interval in words_tier:
+        if interval.mark not in silence_marks:
+            char_alignments.append({
+                'character': interval.mark,
+                'start': interval.minTime,
+                'end': interval.maxTime
+            })
+            
+    phone_alignments = []
+    for interval in phones_tier:
+        if interval.mark not in silence_marks:
+            # Clean up MFA phone markers (e.g., stripping tone numbers if needed)
+            clean_phone = interval.mark
+            phone_alignments.append(AlignedSegment(
+                text=clean_phone,
+                start=interval.minTime,
+                end=interval.maxTime
             ))
-            current_time += char_duration
-        
-        return aligned, all_chars
-    
-    def align_phones(self, phones: List[str], start: float, end: float) -> List[AlignedSegment]:
-        """Distribute phones within a character's time span."""
-        if not phones:
-            return []
-        
-        phones = [p for p in phones if p not in self.extractor.silence and p != '<unk>']
-        if not phones:
-            return []
-        
-        duration = end - start
-        phone_weights = []
-        
-        for p in phones:
-            if self.extractor.is_vowel(p):
-                phone_weights.append(self.VOWEL_WEIGHT)
-            else:
-                phone_weights.append(self.CONSONANT_WEIGHT)
-        
-        total_weight = sum(phone_weights)
-        if total_weight == 0:
-            return []
-        
-        aligned = []
-        current_time = start
-        
-        for phone, weight in zip(phones, phone_weights):
-            phone_duration = (weight / total_weight) * duration
-            aligned.append(AlignedSegment(
-                text=phone,
-                start=current_time,
-                end=current_time + phone_duration
-            ))
-            current_time += phone_duration
-        
-        return aligned
+            
+    return char_alignments, phone_alignments
 
 
 def load_aishell_transcript(transcript_path: str) -> Dict[str, List[str]]:
@@ -294,126 +238,67 @@ def load_aishell_transcript(transcript_path: str) -> Dict[str, List[str]]:
     return transcripts
 
 
-def process_utterance(extractor: AishellF0Extractor, wavs: str,
-                      words: List[str]) -> List[Dict]:
-    """Process a single utterance at CHARACTER level."""
+def process_utterance(extractor: AishellF0Extractor, wav_path: str, textgrid_path: str) -> List[Dict]:
+    """Process a single utterance using highly accurate MFA TextGrid alignments."""
     
-    # Extract F0
-    times, f0_values, duration = extractor.extract_f0(wavs)
+    # Extract F0 contour for the whole audio file
+    times, f0_values, duration = extractor.extract_f0(wav_path)
     
-    # Character-level alignment
-    aligner = CharacterLevelAligner(extractor)
-    char_alignments, char_phones_list = aligner.align_characters(words, duration)
+    # Parse the acoustic alignments instead of doing proportional math
+    char_alignments, phone_alignments = parse_mfa_textgrid(textgrid_path, extractor.silence | {''})
     
     results = []
     
-    for char_seg, (char, phones) in zip(char_alignments, char_phones_list):
-        # Get character-level F0
-        char_f0 = extractor.get_f0_stats(times, f0_values, char_seg.start, char_seg.end)
+    for char_info in char_alignments:
+        char_text = char_info['character']
+        char_start = char_info['start']
+        char_end = char_info['end']
         
-        # Align phones within character
-        phone_alignments = aligner.align_phones(phones, char_seg.start, char_seg.end)
+        # Get character-level F0 using exact acoustic bounds
+        char_f0 = extractor.get_f0_stats(times, f0_values, char_start, char_end)
         
-        # Extract vowel F0
+        # Find all phones that fall within this character's precise time window
+        char_phones = [
+            p for p in phone_alignments 
+            if p.start >= char_start and p.end <= char_end
+        ]
+        
         vowel_results = []
-        for phone_seg in phone_alignments:
-            if extractor.is_vowel(phone_seg.text):
-                vowel_f0 = extractor.get_f0_stats(
-                    times, f0_values, phone_seg.start, phone_seg.end
-                )
+        phone_strings = []
+        
+        for p in char_phones:
+            phone_strings.append(p.text)
+            
+            # If it's a vowel, extract the pitch specifically for that vowel's timespan
+            if extractor.is_vowel(p.text):
+                vowel_f0 = extractor.get_f0_stats(times, f0_values, p.start, p.end)
                 vowel_results.append({
-                    'phone': phone_seg.text,
-                    'start': round(phone_seg.start, 4),
-                    'end': round(phone_seg.end, 4),
+                    'phone': p.text,
+                    'start': round(p.start, 4),
+                    'end': round(p.end, 4),
                     'f0': vowel_f0
                 })
         
         results.append({
-            'character': char,
-            'start': round(char_seg.start, 4),
-            'end': round(char_seg.end, 4),
-            'phones': phones,
+            'character': char_text,
+            'start': round(char_start, 4),
+            'end': round(char_end, 4),
+            'phones': phone_strings,
             'char_f0': char_f0,
             'vowels': vowel_results
         })
-    
+        
     return results
 
 
-def test():
-    # === Configuration ===
-    wavs = "wav/train/S0002/BAC009S0002W0122.wav"
-    transcript_path = "doc/transcript.txt"
-    lexicon_path = "doc/lexicon.txt"
-    
-    # === Initialize ===
-    extractor = AishellF0Extractor(lexicon_path)
-    transcripts = load_aishell_transcript(transcript_path)
-    
-    # Get utterance
-    utt_id = os.path.basename(wavs).replace(".wav", "")
-    words = transcripts.get(utt_id, [])
-    
-    print(f"Utterance: {utt_id}")
-    print(f"Words: {' '.join(words)}")
-    
-    # Show character breakdown
-    print("\n--- Character Breakdown ---")
-    total_chars = 0
-    for word in words:
-        char_phones = extractor.split_word_to_characters(word)
-        for char, phones in char_phones:
-            vowels = [p for p in phones if extractor.is_vowel(p)]
-            consonants = [p for p in phones if not extractor.is_vowel(p) and p not in extractor.silence]
-            print(f"  {char}: consonants={consonants}, vowels={vowels}")
-            total_chars += 1
-    print(f"Total characters: {total_chars}")
-    
-    if not words:
-        print("ERROR: No transcript found!")
-        return
-    
-    # === Process ===
-    results = process_utterance(extractor, wavs, words)
-    
-    # === Output ===
-    print("\n" + "=" * 60)
-    print("F0 EXTRACTION RESULTS (Character Level)")
-    print("=" * 60)
-    
-    for r in results:
-        print(f"\n【{r['character']}】 ({r['start']:.3f}s - {r['end']:.3f}s)")
-        print(f"  Phones: {' '.join(r['phones'])}")
-        
-        if r['char_f0']['mean'] is not None:
-            print(f"  F0: mean={r['char_f0']['mean']:.1f} Hz, "
-                  f"range=[{r['char_f0']['min']:.1f}, {r['char_f0']['max']:.1f}] Hz")
-        else:
-            print("  F0: unvoiced")
-        
-        for v in r['vowels']:
-            if v['f0']['mean'] is not None:
-                print(f"    Vowel [{v['phone']}]: mean={v['f0']['mean']:.1f} Hz")
-            else:
-                print(f"    Vowel [{v['phone']}]: unvoiced")
-    
-    # Save results
-    output_path = f"{utt_id}_f0.json"
-    with open(output_path, 'w', encoding='utf-8') as f:
-        json.dump(results, f, ensure_ascii=False, indent=2)
-    print(f"\nResults saved to: {output_path}")
-
-
 def main():
-    # === Configuration ===
     import argparse
-    parser = argparse.ArgumentParser("Getting F0 value contours by segment")
-    parser.add_argument("-W","--wav",default="./wav/",help="Input .wav file or directory containing .wav files")
-    parser.add_argument("-T","--transcript",default="./doc/transcript.txt",help="Transcript .txt file")
-    parser.add_argument("-L","--lexicon",default="./doc/lexicon.txt",help="Lexicon .txt file")
+    parser = argparse.ArgumentParser("Getting F0 value contours by segment using MFA")
+    parser.add_argument("-W", "--wav", default="./wav/", help="Input .wav file or directory")
+    parser.add_argument("-G", "--textgrids", default="./textgrids/", help="Directory containing MFA .TextGrid files")
+    parser.add_argument("-L", "--lexicon", default="./doc/lexicon.txt", help="Lexicon .txt file")
     args = parser.parse_args()
-    
-    # load wav files
+    # Load wav files
     if os.path.isfile(args.wav):
         wavs = [args.wav] 
     else:
@@ -422,38 +307,32 @@ def main():
             for file in files:
                 if file.endswith(".wav"):
                     wavs.append(os.path.join(root, file))
-        if not wavs:
-            print(f"ERROR: No .wav files found in directory: {args.wav}")
-            return
-        else:
-            print(f"Found {len(wavs)} wav files")
-    
-    transcript_path = args.transcript
-    lexicon_path = args.lexicon
-    
-    # === Initialize ===
-    extractor = AishellF0Extractor(lexicon_path)
-    transcripts = load_aishell_transcript(transcript_path)
-    
+    if not wavs:
+        print(f"ERROR: No .wav files found in directory: {args.wav}")
+        return
+    else:
+        print(f"Found {len(wavs)} wav files")
+    extractor = AishellF0Extractor(args.lexicon)
     # Process each wav file
     for wav in tqdm(wavs):
-        assert type(wav) == str, f"Expected wav to be a string path:{type(wav), wav}"
         utt_id = os.path.basename(wav).replace(".wav", "")
-        words = transcripts.get(utt_id, [])
-        
-        if not words:
-            continue
-        
-        # === Process ===
-        results = process_utterance(extractor, wav, words)
-        
+        # Find the matching TextGrid file
+        # This assumes your textgrids folder mirrors your wav folder structure
+        textgrid_path = wav.replace('/wav/', '/textgrids/').replace(".wav", ".TextGrid")
+        if not os.path.exists(textgrid_path):
+            # If directory structures don't perfectly mirror, try a flat search in the textgrids folder
+            textgrid_path = os.path.join(args.textgrids, f"{utt_id}.TextGrid")
+            if not os.path.exists(textgrid_path):
+                print(f"Warning: No TextGrid found for {utt_id}, skipping...")
+                continue
+        # === Process with MFA ===
+        results = process_utterance(extractor, wav, textgrid_path)
         # === Save ===
         save_path = wav.replace("wav/", "f0/").replace(".wav", ".json")
         if not os.path.exists(os.path.dirname(save_path)):
             os.makedirs(os.path.dirname(save_path))
         with open(save_path, 'w+', encoding='utf-8') as f:
             json.dump(results, f, ensure_ascii=False, indent=2)
-
 
 if __name__ == "__main__":
     main()

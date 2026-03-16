@@ -1,0 +1,112 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 2.837875 
+tiers? <exists> 
+size = 2 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "words" 
+        xmin = 0 
+        xmax = 2.837875 
+        intervals: size = 8 
+        intervals [1]:
+            xmin = 0.0 
+            xmax = 0.48 
+            text = "" 
+        intervals [2]:
+            xmin = 0.48 
+            xmax = 0.69 
+            text = "只要" 
+        intervals [3]:
+            xmin = 0.69 
+            xmax = 1.11 
+            text = "参与" 
+        intervals [4]:
+            xmin = 1.11 
+            xmax = 1.45 
+            text = "者" 
+        intervals [5]:
+            xmin = 1.45 
+            xmax = 1.48 
+            text = "" 
+        intervals [6]:
+            xmin = 1.48 
+            xmax = 1.8 
+            text = "抵达" 
+        intervals [7]:
+            xmin = 1.8 
+            xmax = 2.22 
+            text = "终点" 
+        intervals [8]:
+            xmin = 2.22 
+            xmax = 2.837875 
+            text = "" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "phones" 
+        xmin = 0 
+        xmax = 2.837875 
+        intervals: size = 15 
+        intervals [1]:
+            xmin = 0.0 
+            xmax = 0.48 
+            text = "" 
+        intervals [2]:
+            xmin = 0.48 
+            xmax = 0.55 
+            text = "ʈʂ" 
+        intervals [3]:
+            xmin = 0.55 
+            xmax = 0.58 
+            text = "ʐ̩˨˩˦" 
+        intervals [4]:
+            xmin = 0.58 
+            xmax = 0.62 
+            text = "j" 
+        intervals [5]:
+            xmin = 0.62 
+            xmax = 0.69 
+            text = "aw˥˩" 
+        intervals [6]:
+            xmin = 0.69 
+            xmax = 1.11 
+            text = "spn" 
+        intervals [7]:
+            xmin = 1.11 
+            xmax = 1.21 
+            text = "ʈʂ" 
+        intervals [8]:
+            xmin = 1.21 
+            xmax = 1.45 
+            text = "o˨˩˦" 
+        intervals [9]:
+            xmin = 1.45 
+            xmax = 1.48 
+            text = "" 
+        intervals [10]:
+            xmin = 1.48 
+            xmax = 1.53 
+            text = "t" 
+        intervals [11]:
+            xmin = 1.53 
+            xmax = 1.65 
+            text = "i˨˩˦" 
+        intervals [12]:
+            xmin = 1.65 
+            xmax = 1.7 
+            text = "t" 
+        intervals [13]:
+            xmin = 1.7 
+            xmax = 1.8 
+            text = "a˧˥" 
+        intervals [14]:
+            xmin = 1.8 
+            xmax = 2.22 
+            text = "spn" 
+        intervals [15]:
+            xmin = 2.22 
+            xmax = 2.837875 
+            text = "" 

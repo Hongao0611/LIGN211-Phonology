@@ -1,0 +1,164 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 3.5 
+tiers? <exists> 
+size = 2 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "words" 
+        xmin = 0 
+        xmax = 3.5 
+        intervals: size = 11 
+        intervals [1]:
+            xmin = 0.0 
+            xmax = 0.46 
+            text = "" 
+        intervals [2]:
+            xmin = 0.46 
+            xmax = 0.7 
+            text = "有" 
+        intervals [3]:
+            xmin = 0.7 
+            xmax = 0.96 
+            text = "些" 
+        intervals [4]:
+            xmin = 0.96 
+            xmax = 1.39 
+            text = "自己" 
+        intervals [5]:
+            xmin = 1.39 
+            xmax = 1.59 
+            text = "不" 
+        intervals [6]:
+            xmin = 1.59 
+            xmax = 1.82 
+            text = "太" 
+        intervals [7]:
+            xmin = 1.82 
+            xmax = 2.02 
+            text = "希" 
+        intervals [8]:
+            xmin = 2.02 
+            xmax = 2.21 
+            text = "望" 
+        intervals [9]:
+            xmin = 2.21 
+            xmax = 2.32 
+            text = "去" 
+        intervals [10]:
+            xmin = 2.32 
+            xmax = 2.92 
+            text = "回忆" 
+        intervals [11]:
+            xmin = 2.92 
+            xmax = 3.5 
+            text = "" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "phones" 
+        xmin = 0 
+        xmax = 3.5 
+        intervals: size = 25 
+        intervals [1]:
+            xmin = 0.0 
+            xmax = 0.46 
+            text = "" 
+        intervals [2]:
+            xmin = 0.46 
+            xmax = 0.6 
+            text = "j" 
+        intervals [3]:
+            xmin = 0.6 
+            xmax = 0.7 
+            text = "ow˨˩˦" 
+        intervals [4]:
+            xmin = 0.7 
+            xmax = 0.83 
+            text = "ɕ" 
+        intervals [5]:
+            xmin = 0.83 
+            xmax = 0.88 
+            text = "j" 
+        intervals [6]:
+            xmin = 0.88 
+            xmax = 0.96 
+            text = "e˨˩˦" 
+        intervals [7]:
+            xmin = 0.96 
+            xmax = 1.09 
+            text = "ts" 
+        intervals [8]:
+            xmin = 1.09 
+            xmax = 1.16 
+            text = "z̩˥˩" 
+        intervals [9]:
+            xmin = 1.16 
+            xmax = 1.26 
+            text = "tɕ" 
+        intervals [10]:
+            xmin = 1.26 
+            xmax = 1.39 
+            text = "i˨˩˦" 
+        intervals [11]:
+            xmin = 1.39 
+            xmax = 1.55 
+            text = "p" 
+        intervals [12]:
+            xmin = 1.55 
+            xmax = 1.59 
+            text = "u˥˩" 
+        intervals [13]:
+            xmin = 1.59 
+            xmax = 1.68 
+            text = "tʰ" 
+        intervals [14]:
+            xmin = 1.68 
+            xmax = 1.82 
+            text = "aj˥˩" 
+        intervals [15]:
+            xmin = 1.82 
+            xmax = 2.02 
+            text = "spn" 
+        intervals [16]:
+            xmin = 2.02 
+            xmax = 2.09 
+            text = "w" 
+        intervals [17]:
+            xmin = 2.09 
+            xmax = 2.16 
+            text = "a˥˩" 
+        intervals [18]:
+            xmin = 2.16 
+            xmax = 2.21 
+            text = "ŋ" 
+        intervals [19]:
+            xmin = 2.21 
+            xmax = 2.29 
+            text = "tɕʰ" 
+        intervals [20]:
+            xmin = 2.29 
+            xmax = 2.32 
+            text = "y˥˩" 
+        intervals [21]:
+            xmin = 2.32 
+            xmax = 2.47 
+            text = "x" 
+        intervals [22]:
+            xmin = 2.47 
+            xmax = 2.52 
+            text = "w" 
+        intervals [23]:
+            xmin = 2.52 
+            xmax = 2.6 
+            text = "ej˧˥" 
+        intervals [24]:
+            xmin = 2.6 
+            xmax = 2.92 
+            text = "i˥˩" 
+        intervals [25]:
+            xmin = 2.92 
+            xmax = 3.5 
+            text = "" 

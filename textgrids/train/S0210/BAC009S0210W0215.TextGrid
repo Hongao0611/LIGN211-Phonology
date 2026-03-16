@@ -1,0 +1,92 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 2.937 
+tiers? <exists> 
+size = 2 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "words" 
+        xmin = 0 
+        xmax = 2.937 
+        intervals: size = 7 
+        intervals [1]:
+            xmin = 0.0 
+            xmax = 0.51 
+            text = "" 
+        intervals [2]:
+            xmin = 0.51 
+            xmax = 1.03 
+            text = "这些" 
+        intervals [3]:
+            xmin = 1.03 
+            xmax = 1.26 
+            text = "机构" 
+        intervals [4]:
+            xmin = 1.26 
+            xmax = 1.63 
+            text = "针对" 
+        intervals [5]:
+            xmin = 1.63 
+            xmax = 1.99 
+            text = "各种" 
+        intervals [6]:
+            xmin = 1.99 
+            xmax = 2.35 
+            text = "标的" 
+        intervals [7]:
+            xmin = 2.35 
+            xmax = 2.937 
+            text = "" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "phones" 
+        xmin = 0 
+        xmax = 2.937 
+        intervals: size = 11 
+        intervals [1]:
+            xmin = 0.0 
+            xmax = 0.51 
+            text = "" 
+        intervals [2]:
+            xmin = 0.51 
+            xmax = 1.03 
+            text = "spn" 
+        intervals [3]:
+            xmin = 1.03 
+            xmax = 1.26 
+            text = "spn" 
+        intervals [4]:
+            xmin = 1.26 
+            xmax = 1.63 
+            text = "spn" 
+        intervals [5]:
+            xmin = 1.63 
+            xmax = 1.7 
+            text = "k" 
+        intervals [6]:
+            xmin = 1.7 
+            xmax = 1.78 
+            text = "o˥˩" 
+        intervals [7]:
+            xmin = 1.78 
+            xmax = 1.84 
+            text = "ʈʂ" 
+        intervals [8]:
+            xmin = 1.84 
+            xmax = 1.91 
+            text = "u˨˩˦" 
+        intervals [9]:
+            xmin = 1.91 
+            xmax = 1.99 
+            text = "ŋ" 
+        intervals [10]:
+            xmin = 1.99 
+            xmax = 2.35 
+            text = "spn" 
+        intervals [11]:
+            xmin = 2.35 
+            xmax = 2.937 
+            text = "" 

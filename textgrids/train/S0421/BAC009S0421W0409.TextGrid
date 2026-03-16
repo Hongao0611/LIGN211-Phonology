@@ -1,0 +1,84 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 2.918188 
+tiers? <exists> 
+size = 2 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "words" 
+        xmin = 0 
+        xmax = 2.918188 
+        intervals: size = 6 
+        intervals [1]:
+            xmin = 0.0 
+            xmax = 0.37 
+            text = "" 
+        intervals [2]:
+            xmin = 0.37 
+            xmax = 1.37 
+            text = "稍后" 
+        intervals [3]:
+            xmin = 1.37 
+            xmax = 1.64 
+            text = "要" 
+        intervals [4]:
+            xmin = 1.64 
+            xmax = 1.85 
+            text = "定期" 
+        intervals [5]:
+            xmin = 1.85 
+            xmax = 2.42 
+            text = "复诊" 
+        intervals [6]:
+            xmin = 2.42 
+            xmax = 2.918188 
+            text = "" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "phones" 
+        xmin = 0 
+        xmax = 2.918188 
+        intervals: size = 10 
+        intervals [1]:
+            xmin = 0.0 
+            xmax = 0.37 
+            text = "" 
+        intervals [2]:
+            xmin = 0.37 
+            xmax = 1.37 
+            text = "spn" 
+        intervals [3]:
+            xmin = 1.37 
+            xmax = 1.64 
+            text = "spn" 
+        intervals [4]:
+            xmin = 1.64 
+            xmax = 1.85 
+            text = "spn" 
+        intervals [5]:
+            xmin = 1.85 
+            xmax = 2.04 
+            text = "f" 
+        intervals [6]:
+            xmin = 2.04 
+            xmax = 2.12 
+            text = "u˥˩" 
+        intervals [7]:
+            xmin = 2.12 
+            xmax = 2.21 
+            text = "ʈʂ" 
+        intervals [8]:
+            xmin = 2.21 
+            xmax = 2.24 
+            text = "ə˨˩˦" 
+        intervals [9]:
+            xmin = 2.24 
+            xmax = 2.42 
+            text = "n" 
+        intervals [10]:
+            xmin = 2.42 
+            xmax = 2.918188 
+            text = "" 

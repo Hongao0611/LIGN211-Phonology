@@ -1,0 +1,112 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 3.382812 
+tiers? <exists> 
+size = 2 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "words" 
+        xmin = 0 
+        xmax = 3.382812 
+        intervals: size = 9 
+        intervals [1]:
+            xmin = 0.0 
+            xmax = 0.54 
+            text = "" 
+        intervals [2]:
+            xmin = 0.54 
+            xmax = 0.7 
+            text = "与" 
+        intervals [3]:
+            xmin = 0.7 
+            xmax = 1.26 
+            text = "母亲" 
+        intervals [4]:
+            xmin = 1.26 
+            xmax = 1.82 
+            text = "关系" 
+        intervals [5]:
+            xmin = 1.82 
+            xmax = 2.08 
+            text = "时" 
+        intervals [6]:
+            xmin = 2.08 
+            xmax = 2.35 
+            text = "好" 
+        intervals [7]:
+            xmin = 2.35 
+            xmax = 2.61 
+            text = "时" 
+        intervals [8]:
+            xmin = 2.61 
+            xmax = 3.04 
+            text = "坏" 
+        intervals [9]:
+            xmin = 3.04 
+            xmax = 3.382812 
+            text = "" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "phones" 
+        xmin = 0 
+        xmax = 3.382812 
+        intervals: size = 14 
+        intervals [1]:
+            xmin = 0.0 
+            xmax = 0.54 
+            text = "" 
+        intervals [2]:
+            xmin = 0.54 
+            xmax = 0.7 
+            text = "y˨˩˦" 
+        intervals [3]:
+            xmin = 0.7 
+            xmax = 1.26 
+            text = "spn" 
+        intervals [4]:
+            xmin = 1.26 
+            xmax = 1.82 
+            text = "spn" 
+        intervals [5]:
+            xmin = 1.82 
+            xmax = 2.03 
+            text = "ʂ" 
+        intervals [6]:
+            xmin = 2.03 
+            xmax = 2.08 
+            text = "ʐ̩˧˥" 
+        intervals [7]:
+            xmin = 2.08 
+            xmax = 2.23 
+            text = "x" 
+        intervals [8]:
+            xmin = 2.23 
+            xmax = 2.35 
+            text = "aw˨˩˦" 
+        intervals [9]:
+            xmin = 2.35 
+            xmax = 2.53 
+            text = "ʂ" 
+        intervals [10]:
+            xmin = 2.53 
+            xmax = 2.61 
+            text = "ʐ̩˧˥" 
+        intervals [11]:
+            xmin = 2.61 
+            xmax = 2.72 
+            text = "x" 
+        intervals [12]:
+            xmin = 2.72 
+            xmax = 2.76 
+            text = "w" 
+        intervals [13]:
+            xmin = 2.76 
+            xmax = 3.04 
+            text = "aj˥˩" 
+        intervals [14]:
+            xmin = 3.04 
+            xmax = 3.382812 
+            text = "" 

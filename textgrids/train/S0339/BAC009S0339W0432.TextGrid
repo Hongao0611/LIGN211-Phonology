@@ -1,0 +1,192 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 4.01 
+tiers? <exists> 
+size = 2 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "words" 
+        xmin = 0 
+        xmax = 4.01 
+        intervals: size = 12 
+        intervals [1]:
+            xmin = 0.0 
+            xmax = 0.32 
+            text = "" 
+        intervals [2]:
+            xmin = 0.32 
+            xmax = 0.72 
+            text = "尽量" 
+        intervals [3]:
+            xmin = 0.72 
+            xmax = 0.78 
+            text = "不" 
+        intervals [4]:
+            xmin = 0.78 
+            xmax = 0.98 
+            text = "要" 
+        intervals [5]:
+            xmin = 0.98 
+            xmax = 1.2 
+            text = "让" 
+        intervals [6]:
+            xmin = 1.2 
+            xmax = 1.72 
+            text = "孩子" 
+        intervals [7]:
+            xmin = 1.72 
+            xmax = 2.1 
+            text = "在" 
+        intervals [8]:
+            xmin = 2.1 
+            xmax = 2.38 
+            text = "" 
+        intervals [9]:
+            xmin = 2.38 
+            xmax = 2.69 
+            text = "水边" 
+        intervals [10]:
+            xmin = 2.69 
+            xmax = 3.09 
+            text = "玩耍" 
+        intervals [11]:
+            xmin = 3.09 
+            xmax = 3.68 
+            text = "逗留" 
+        intervals [12]:
+            xmin = 3.68 
+            xmax = 4.01 
+            text = "" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "phones" 
+        xmin = 0 
+        xmax = 4.01 
+        intervals: size = 31 
+        intervals [1]:
+            xmin = 0.0 
+            xmax = 0.32 
+            text = "" 
+        intervals [2]:
+            xmin = 0.32 
+            xmax = 0.41 
+            text = "tɕ" 
+        intervals [3]:
+            xmin = 0.41 
+            xmax = 0.45 
+            text = "i˨˩˦" 
+        intervals [4]:
+            xmin = 0.45 
+            xmax = 0.5 
+            text = "n" 
+        intervals [5]:
+            xmin = 0.5 
+            xmax = 0.53 
+            text = "l" 
+        intervals [6]:
+            xmin = 0.53 
+            xmax = 0.56 
+            text = "j" 
+        intervals [7]:
+            xmin = 0.56 
+            xmax = 0.62 
+            text = "a˥˩" 
+        intervals [8]:
+            xmin = 0.62 
+            xmax = 0.72 
+            text = "ŋ" 
+        intervals [9]:
+            xmin = 0.72 
+            xmax = 0.75 
+            text = "p" 
+        intervals [10]:
+            xmin = 0.75 
+            xmax = 0.78 
+            text = "u˥˩" 
+        intervals [11]:
+            xmin = 0.78 
+            xmax = 0.98 
+            text = "spn" 
+        intervals [12]:
+            xmin = 0.98 
+            xmax = 1.05 
+            text = "ʐ" 
+        intervals [13]:
+            xmin = 1.05 
+            xmax = 1.15 
+            text = "a˥˩" 
+        intervals [14]:
+            xmin = 1.15 
+            xmax = 1.2 
+            text = "ŋ" 
+        intervals [15]:
+            xmin = 1.2 
+            xmax = 1.72 
+            text = "spn" 
+        intervals [16]:
+            xmin = 1.72 
+            xmax = 1.82 
+            text = "ts" 
+        intervals [17]:
+            xmin = 1.82 
+            xmax = 2.1 
+            text = "aj˥˩" 
+        intervals [18]:
+            xmin = 2.1 
+            xmax = 2.38 
+            text = "" 
+        intervals [19]:
+            xmin = 2.38 
+            xmax = 2.69 
+            text = "spn" 
+        intervals [20]:
+            xmin = 2.69 
+            xmax = 2.75 
+            text = "w" 
+        intervals [21]:
+            xmin = 2.75 
+            xmax = 2.82 
+            text = "a˧˥" 
+        intervals [22]:
+            xmin = 2.82 
+            xmax = 2.88 
+            text = "n" 
+        intervals [23]:
+            xmin = 2.88 
+            xmax = 2.94 
+            text = "ʂ" 
+        intervals [24]:
+            xmin = 2.94 
+            xmax = 2.99 
+            text = "w" 
+        intervals [25]:
+            xmin = 2.99 
+            xmax = 3.09 
+            text = "a˨˩˦" 
+        intervals [26]:
+            xmin = 3.09 
+            xmax = 3.17 
+            text = "t" 
+        intervals [27]:
+            xmin = 3.17 
+            xmax = 3.28 
+            text = "ow˥˩" 
+        intervals [28]:
+            xmin = 3.28 
+            xmax = 3.34 
+            text = "l" 
+        intervals [29]:
+            xmin = 3.34 
+            xmax = 3.4 
+            text = "j" 
+        intervals [30]:
+            xmin = 3.4 
+            xmax = 3.68 
+            text = "ow˧˥" 
+        intervals [31]:
+            xmin = 3.68 
+            xmax = 4.01 
+            text = "" 

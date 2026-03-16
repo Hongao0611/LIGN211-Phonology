@@ -1,0 +1,88 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 3.103063 
+tiers? <exists> 
+size = 2 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "words" 
+        xmin = 0 
+        xmax = 3.103063 
+        intervals: size = 7 
+        intervals [1]:
+            xmin = 0.0 
+            xmax = 0.49 
+            text = "" 
+        intervals [2]:
+            xmin = 0.49 
+            xmax = 0.68 
+            text = "途中" 
+        intervals [3]:
+            xmin = 0.68 
+            xmax = 1.08 
+            text = "发生" 
+        intervals [4]:
+            xmin = 1.08 
+            xmax = 1.7 
+            text = "交通" 
+        intervals [5]:
+            xmin = 1.7 
+            xmax = 2.1 
+            text = "事故" 
+        intervals [6]:
+            xmin = 2.1 
+            xmax = 2.65 
+            text = "受伤" 
+        intervals [7]:
+            xmin = 2.65 
+            xmax = 3.103063 
+            text = "" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "phones" 
+        xmin = 0 
+        xmax = 3.103063 
+        intervals: size = 10 
+        intervals [1]:
+            xmin = 0.0 
+            xmax = 0.49 
+            text = "" 
+        intervals [2]:
+            xmin = 0.49 
+            xmax = 0.68 
+            text = "spn" 
+        intervals [3]:
+            xmin = 0.68 
+            xmax = 1.08 
+            text = "spn" 
+        intervals [4]:
+            xmin = 1.08 
+            xmax = 1.7 
+            text = "spn" 
+        intervals [5]:
+            xmin = 1.7 
+            xmax = 1.83 
+            text = "ʂ" 
+        intervals [6]:
+            xmin = 1.83 
+            xmax = 1.88 
+            text = "ʐ̩˥˩" 
+        intervals [7]:
+            xmin = 1.88 
+            xmax = 1.96 
+            text = "k" 
+        intervals [8]:
+            xmin = 1.96 
+            xmax = 2.1 
+            text = "u˥˩" 
+        intervals [9]:
+            xmin = 2.1 
+            xmax = 2.65 
+            text = "spn" 
+        intervals [10]:
+            xmin = 2.65 
+            xmax = 3.103063 
+            text = "" 

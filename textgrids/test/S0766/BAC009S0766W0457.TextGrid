@@ -1,0 +1,164 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 4.355937 
+tiers? <exists> 
+size = 2 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "words" 
+        xmin = 0 
+        xmax = 4.355937 
+        intervals: size = 12 
+        intervals [1]:
+            xmin = 0.0 
+            xmax = 0.53 
+            text = "" 
+        intervals [2]:
+            xmin = 0.53 
+            xmax = 1.04 
+            text = "<unk>" 
+        intervals [3]:
+            xmin = 1.04 
+            xmax = 1.43 
+            text = "<unk>" 
+        intervals [4]:
+            xmin = 1.43 
+            xmax = 1.92 
+            text = "<unk>" 
+        intervals [5]:
+            xmin = 1.92 
+            xmax = 2.04 
+            text = "" 
+        intervals [6]:
+            xmin = 2.04 
+            xmax = 2.39 
+            text = "本报" 
+        intervals [7]:
+            xmin = 2.39 
+            xmax = 2.87 
+            text = "记者" 
+        intervals [8]:
+            xmin = 2.87 
+            xmax = 2.93 
+            text = "" 
+        intervals [9]:
+            xmin = 2.93 
+            xmax = 3.15 
+            text = "张" 
+        intervals [10]:
+            xmin = 3.15 
+            xmax = 3.37 
+            text = "萌" 
+        intervals [11]:
+            xmin = 3.37 
+            xmax = 3.98 
+            text = "昨日" 
+        intervals [12]:
+            xmin = 3.98 
+            xmax = 4.355937 
+            text = "" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "phones" 
+        xmin = 0 
+        xmax = 4.355937 
+        intervals: size = 24 
+        intervals [1]:
+            xmin = 0.0 
+            xmax = 0.53 
+            text = "" 
+        intervals [2]:
+            xmin = 0.53 
+            xmax = 1.04 
+            text = "spn" 
+        intervals [3]:
+            xmin = 1.04 
+            xmax = 1.43 
+            text = "spn" 
+        intervals [4]:
+            xmin = 1.43 
+            xmax = 1.92 
+            text = "spn" 
+        intervals [5]:
+            xmin = 1.92 
+            xmax = 2.04 
+            text = "" 
+        intervals [6]:
+            xmin = 2.04 
+            xmax = 2.09 
+            text = "p" 
+        intervals [7]:
+            xmin = 2.09 
+            xmax = 2.16 
+            text = "ə˨˩˦" 
+        intervals [8]:
+            xmin = 2.16 
+            xmax = 2.23 
+            text = "n" 
+        intervals [9]:
+            xmin = 2.23 
+            xmax = 2.29 
+            text = "p" 
+        intervals [10]:
+            xmin = 2.29 
+            xmax = 2.39 
+            text = "aw˥˩" 
+        intervals [11]:
+            xmin = 2.39 
+            xmax = 2.53 
+            text = "tɕ" 
+        intervals [12]:
+            xmin = 2.53 
+            xmax = 2.6 
+            text = "i˥˩" 
+        intervals [13]:
+            xmin = 2.6 
+            xmax = 2.68 
+            text = "ʈʂ" 
+        intervals [14]:
+            xmin = 2.68 
+            xmax = 2.87 
+            text = "o˨˩˦" 
+        intervals [15]:
+            xmin = 2.87 
+            xmax = 2.93 
+            text = "" 
+        intervals [16]:
+            xmin = 2.93 
+            xmax = 3.15 
+            text = "spn" 
+        intervals [17]:
+            xmin = 3.15 
+            xmax = 3.21 
+            text = "m" 
+        intervals [18]:
+            xmin = 3.21 
+            xmax = 3.28 
+            text = "o˧˥" 
+        intervals [19]:
+            xmin = 3.28 
+            xmax = 3.37 
+            text = "ŋ" 
+        intervals [20]:
+            xmin = 3.37 
+            xmax = 3.51 
+            text = "ts" 
+        intervals [21]:
+            xmin = 3.51 
+            xmax = 3.59 
+            text = "w" 
+        intervals [22]:
+            xmin = 3.59 
+            xmax = 3.65 
+            text = "o˧˥" 
+        intervals [23]:
+            xmin = 3.65 
+            xmax = 3.98 
+            text = "ʐ̩˥˩" 
+        intervals [24]:
+            xmin = 3.98 
+            xmax = 4.355937 
+            text = "" 

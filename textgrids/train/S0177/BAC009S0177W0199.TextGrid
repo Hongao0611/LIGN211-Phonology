@@ -1,0 +1,132 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 4.458 
+tiers? <exists> 
+size = 2 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "words" 
+        xmin = 0 
+        xmax = 4.458 
+        intervals: size = 10 
+        intervals [1]:
+            xmin = 0.0 
+            xmax = 0.49 
+            text = "" 
+        intervals [2]:
+            xmin = 0.49 
+            xmax = 0.63 
+            text = "应" 
+        intervals [3]:
+            xmin = 0.63 
+            xmax = 0.81 
+            text = "按" 
+        intervals [4]:
+            xmin = 0.81 
+            xmax = 1.0 
+            text = "规定" 
+        intervals [5]:
+            xmin = 1.0 
+            xmax = 1.07 
+            text = "申报" 
+        intervals [6]:
+            xmin = 1.07 
+            xmax = 1.3 
+            text = "缴纳" 
+        intervals [7]:
+            xmin = 1.3 
+            xmax = 1.33 
+            text = "增值" 
+        intervals [8]:
+            xmin = 1.33 
+            xmax = 1.68 
+            text = "" 
+        intervals [9]:
+            xmin = 1.68 
+            xmax = 1.95 
+            text = "税" 
+        intervals [10]:
+            xmin = 1.95 
+            xmax = 4.458 
+            text = "" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "phones" 
+        xmin = 0 
+        xmax = 4.458 
+        intervals: size = 18 
+        intervals [1]:
+            xmin = 0.0 
+            xmax = 0.49 
+            text = "" 
+        intervals [2]:
+            xmin = 0.49 
+            xmax = 0.63 
+            text = "spn" 
+        intervals [3]:
+            xmin = 0.63 
+            xmax = 0.71 
+            text = "ʔ" 
+        intervals [4]:
+            xmin = 0.71 
+            xmax = 0.78 
+            text = "a˥˩" 
+        intervals [5]:
+            xmin = 0.78 
+            xmax = 0.81 
+            text = "n" 
+        intervals [6]:
+            xmin = 0.81 
+            xmax = 1.0 
+            text = "spn" 
+        intervals [7]:
+            xmin = 1.0 
+            xmax = 1.07 
+            text = "spn" 
+        intervals [8]:
+            xmin = 1.07 
+            xmax = 1.14 
+            text = "tɕ" 
+        intervals [9]:
+            xmin = 1.14 
+            xmax = 1.21 
+            text = "j" 
+        intervals [10]:
+            xmin = 1.21 
+            xmax = 1.24 
+            text = "aw˨˩˦" 
+        intervals [11]:
+            xmin = 1.24 
+            xmax = 1.27 
+            text = "n" 
+        intervals [12]:
+            xmin = 1.27 
+            xmax = 1.3 
+            text = "a˥˩" 
+        intervals [13]:
+            xmin = 1.3 
+            xmax = 1.33 
+            text = "spn" 
+        intervals [14]:
+            xmin = 1.33 
+            xmax = 1.68 
+            text = "" 
+        intervals [15]:
+            xmin = 1.68 
+            xmax = 1.88 
+            text = "ʂ" 
+        intervals [16]:
+            xmin = 1.88 
+            xmax = 1.92 
+            text = "w" 
+        intervals [17]:
+            xmin = 1.92 
+            xmax = 1.95 
+            text = "ej˥˩" 
+        intervals [18]:
+            xmin = 1.95 
+            xmax = 4.458 
+            text = "" 
