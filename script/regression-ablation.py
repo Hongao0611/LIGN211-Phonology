@@ -202,53 +202,52 @@ def main():
         logger.info(f"\nI(Y;P|S) = {h_s - h_sp:.4f} nats (prosody beyond segmental)")
         logger.info(f"I(Y;S|P) = {h_p - h_sp:.4f} nats (segmental beyond prosody)")
 
-    # --- FEATURE ABLATION (DLL) ---
+    # --- FEATURE ABLATION (INFERENCE-TIME DLL) ---
     logger.info(f"\n{'='*40}\nFEATURE ABLATION (DLL)\n{'='*40}")
     
     seg_dim = X_seg_train.shape[1]
     feature_names = [f"Dim_{i}" for i in range(seg_dim)]
+    
+    # FIX 1: Use np.isclose to handle floating point imprecision
     for base, vec in seg_emb.items():
-        if np.sum(vec) == 1.0 and np.max(vec) == 1.0:
+        if np.isclose(np.sum(vec), 1.0) and np.isclose(np.max(vec), 1.0):
             idx = np.argmax(vec)
             feature_names[idx] = base
 
+    # Train the "Full" models once for inference ablation
+    scaler_seg = StandardScaler()
+    X_train_seg_s = scaler_seg.fit_transform(X_seg_train)
+    model_seg_full = LogisticRegression(solver='lbfgs', C=results['segmental']['best_C'], max_iter=1000, random_state=args.seed)
+    model_seg_full.fit(X_train_seg_s, y_train)
     base_seg_nll = results['segmental']['nll']
-    best_C_seg = results['segmental']['best_C']
 
+    scaler_comb = StandardScaler()
+    X_train_comb_s = scaler_comb.fit_transform(X_comb_train)
+    model_comb_full = LogisticRegression(solver='lbfgs', C=results['combined']['best_C'], max_iter=1000, random_state=args.seed)
+    model_comb_full.fit(X_train_comb_s, y_train)
     base_comb_nll = results['combined']['nll']
-    best_C_comb = results['combined']['best_C']
 
     ablation_csv_data = []
 
     for i in range(seg_dim):
         feat_name = feature_names[i]
 
-        # 1. Segmental Ablation
-        X_train_seg_abl = np.delete(X_seg_train, i, axis=1)
-        X_test_seg_abl = np.delete(X_seg_test, i, axis=1)
+        # FIX 2: Ablate at test-time by zeroing out the column, keeping the original model and scaler
         
-        scaler_seg = StandardScaler()
-        X_train_seg_s = scaler_seg.fit_transform(X_train_seg_abl)
-        X_test_seg_s = scaler_seg.transform(X_test_seg_abl)
+        # --- Segmental Ablation ---
+        X_test_seg_ablated = X_seg_test.copy()
+        X_test_seg_ablated[:, i] = 0.0 # Blindfold the model to this specific feature
         
-        model_seg = LogisticRegression(solver='lbfgs', C=best_C_seg, max_iter=1000, random_state=args.seed)
-        model_seg.fit(X_train_seg_s, y_train)
-        
-        nll_seg_abl = log_loss(y_test, model_seg.predict_proba(X_test_seg_s))
+        X_test_seg_s = scaler_seg.transform(X_test_seg_ablated)
+        nll_seg_abl = log_loss(y_test, model_seg_full.predict_proba(X_test_seg_s))
         dll_seg = nll_seg_abl - base_seg_nll
 
-        # 2. Combined Ablation (Ablating ONLY the segmental feature, keeping prosody intact)
-        X_train_comb_abl = np.delete(X_comb_train, i, axis=1)
-        X_test_comb_abl = np.delete(X_comb_test, i, axis=1)
-
-        scaler_comb = StandardScaler()
-        X_train_comb_s = scaler_comb.fit_transform(X_train_comb_abl)
-        X_test_comb_s = scaler_comb.transform(X_test_comb_abl)
-
-        model_comb = LogisticRegression(solver='lbfgs', C=best_C_comb, max_iter=1000, random_state=args.seed)
-        model_comb.fit(X_train_comb_s, y_train)
-
-        nll_comb_abl = log_loss(y_test, model_comb.predict_proba(X_test_comb_s))
+        # --- Combined Ablation ---
+        X_test_comb_ablated = X_comb_test.copy()
+        X_test_comb_ablated[:, i] = 0.0 # Blindfold the model to the segmental feature only
+        
+        X_test_comb_s = scaler_comb.transform(X_test_comb_ablated)
+        nll_comb_abl = log_loss(y_test, model_comb_full.predict_proba(X_test_comb_s))
         dll_comb = nll_comb_abl - base_comb_nll
         
         # Store for CSV
@@ -259,23 +258,6 @@ def main():
         })
         
         logger.info(f"Ablated {feat_name:6} | DLL_Seg: {dll_seg:+.4f} | DLL_Comb: {dll_comb:+.4f}")
-
-    # --- SAVE OUTPUTS ---
-    Path(args.output).parent.mkdir(parents=True, exist_ok=True)
-    
-    # Save base results to JSON
-    with open(args.output, 'w') as f:
-        json.dump(results, f, indent=2)
-
-    # Save ablation results to CSV (replaces .json extension with .csv)
-    csv_path = Path(args.output).with_suffix('.csv')
-    with open(csv_path, 'w', newline='', encoding='utf-8') as f:
-        writer = csv.DictWriter(f, fieldnames=['Feature', 'DLL_Segmental', 'DLL_Combined'])
-        writer.writeheader()
-        writer.writerows(ablation_csv_data)
-        
-    logger.info(f"\nSaved regression summary to: {args.output}")
-    logger.info(f"Saved DLL ablation results to: {csv_path}")
 
 
 if __name__ == '__main__':
