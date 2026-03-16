@@ -1,60 +1,59 @@
-2026-03-15 01:12:16,400 - INFO - Speakers: 400 | Train/Dev/Test files: 113291/14238/14071
-2026-03-15 01:12:16,400 - INFO - 
+2026-03-16 01:46:59,159 - INFO - Speakers: 400 | Train/Dev/Test files: 113360/14209/14031
+2026-03-16 01:46:59,159 - INFO - 
 ==================================================
 Training SEGMENTAL model
 ==================================================
-2026-03-15 01:14:07,316 - INFO - Loaded 1284627 samples
-2026-03-15 01:14:21,100 - INFO - Loaded 161074 samples
-2026-03-15 01:14:34,848 - INFO - Loaded 159765 samples
-2026-03-15 01:17:02,925 - INFO - Epoch 10: train_loss=1.2229, dev_loss=1.2196, dev_acc=0.4580
-2026-03-15 01:19:30,464 - INFO - Epoch 20: train_loss=1.2224, dev_loss=1.2196, dev_acc=0.4577
-2026-03-15 01:21:57,766 - INFO - Epoch 30: train_loss=1.2220, dev_loss=1.2190, dev_acc=0.4586
-2026-03-15 01:24:26,139 - INFO - Epoch 40: train_loss=1.2219, dev_loss=1.2193, dev_acc=0.4580
-2026-03-15 01:25:40,389 - INFO - Early stopping at epoch 45
-2026-03-15 01:25:41,484 - INFO - [SEGMENTAL] Test: loss=1.2196, acc=0.4599
-2026-03-15 01:25:41,484 - INFO - 
+2026-03-16 01:47:35,061 - INFO - Loaded 885565 samples
+2026-03-16 01:47:39,597 - INFO - Loaded 110687 samples
+2026-03-16 01:47:44,232 - INFO - Loaded 109178 samples
+2026-03-16 01:49:05,910 - INFO - Epoch 10: train_loss=1.0115, dev_loss=1.0101, dev_acc=0.5052
+2026-03-16 01:50:26,220 - INFO - Epoch 20: train_loss=1.0112, dev_loss=1.0101, dev_acc=0.5052
+2026-03-16 01:51:46,417 - INFO - Epoch 30: train_loss=1.0110, dev_loss=1.0101, dev_acc=0.5052
+2026-03-16 01:52:10,558 - INFO - Early stopping at epoch 33
+2026-03-16 01:52:11,142 - INFO - [SEGMENTAL] Test: loss=1.0104, acc=0.5055
+2026-03-16 01:52:11,142 - INFO - 
 ==================================================
 Training PROSODIC model
 ==================================================
-2026-03-15 01:27:32,824 - INFO - Loaded 1284627 samples
-2026-03-15 01:27:46,625 - INFO - Loaded 161074 samples
-2026-03-15 01:28:00,383 - INFO - Loaded 159765 samples
-2026-03-15 01:30:33,837 - INFO - Epoch 10: train_loss=1.3340, dev_loss=1.3334, dev_acc=0.3723
-2026-03-15 01:33:06,849 - INFO - Epoch 20: train_loss=1.3329, dev_loss=1.3328, dev_acc=0.3734
-2026-03-15 01:35:40,091 - INFO - Epoch 30: train_loss=1.3323, dev_loss=1.3318, dev_acc=0.3734
-2026-03-15 01:38:13,391 - INFO - Epoch 40: train_loss=1.3319, dev_loss=1.3313, dev_acc=0.3745
-2026-03-15 01:40:46,333 - INFO - Epoch 50: train_loss=1.3315, dev_loss=1.3309, dev_acc=0.3750
-2026-03-15 01:43:19,643 - INFO - Epoch 60: train_loss=1.3314, dev_loss=1.3306, dev_acc=0.3747
-2026-03-15 01:45:52,868 - INFO - Epoch 70: train_loss=1.3311, dev_loss=1.3305, dev_acc=0.3748
-2026-03-15 01:48:26,363 - INFO - Epoch 80: train_loss=1.3310, dev_loss=1.3305, dev_acc=0.3757
-2026-03-15 01:50:59,363 - INFO - Epoch 90: train_loss=1.3307, dev_loss=1.3300, dev_acc=0.3752
-2026-03-15 01:53:32,846 - INFO - Epoch 100: train_loss=1.3305, dev_loss=1.3298, dev_acc=0.3750
-2026-03-15 01:53:34,103 - INFO - [PROSODIC] Test: loss=1.3272, acc=0.3759
-2026-03-15 01:53:34,103 - INFO - 
+2026-03-16 01:52:48,234 - INFO - Loaded 885565 samples
+2026-03-16 01:52:52,932 - INFO - Loaded 110687 samples
+2026-03-16 01:52:57,554 - INFO - Loaded 109178 samples
+2026-03-16 01:54:23,830 - INFO - Epoch 10: train_loss=0.8668, dev_loss=0.8652, dev_acc=0.6168
+2026-03-16 01:55:49,935 - INFO - Epoch 20: train_loss=0.8591, dev_loss=0.8594, dev_acc=0.6185
+2026-03-16 01:57:15,665 - INFO - Epoch 30: train_loss=0.8554, dev_loss=0.8535, dev_acc=0.6219
+2026-03-16 01:58:41,178 - INFO - Epoch 40: train_loss=0.8532, dev_loss=0.8533, dev_acc=0.6215
+2026-03-16 02:00:06,594 - INFO - Epoch 50: train_loss=0.8509, dev_loss=0.8520, dev_acc=0.6231
+2026-03-16 02:01:32,386 - INFO - Epoch 60: train_loss=0.8501, dev_loss=0.8477, dev_acc=0.6245
+2026-03-16 02:02:57,904 - INFO - Epoch 70: train_loss=0.8486, dev_loss=0.8474, dev_acc=0.6239
+2026-03-16 02:04:23,247 - INFO - Epoch 80: train_loss=0.8481, dev_loss=0.8463, dev_acc=0.6251
+2026-03-16 02:05:49,244 - INFO - Epoch 90: train_loss=0.8472, dev_loss=0.8449, dev_acc=0.6263
+2026-03-16 02:07:14,961 - INFO - Epoch 100: train_loss=0.8464, dev_loss=0.8436, dev_acc=0.6268
+2026-03-16 02:07:15,568 - INFO - [PROSODIC] Test: loss=0.8426, acc=0.6263
+2026-03-16 02:07:15,568 - INFO - 
 ==================================================
 Training COMBINED model
 ==================================================
-2026-03-15 01:55:24,834 - INFO - Loaded 1284627 samples
-2026-03-15 01:55:38,652 - INFO - Loaded 161074 samples
-2026-03-15 01:55:52,402 - INFO - Loaded 159765 samples
-2026-03-15 01:58:47,005 - INFO - Epoch 10: train_loss=1.2199, dev_loss=1.2147, dev_acc=0.4623
-2026-03-15 02:01:39,487 - INFO - Epoch 20: train_loss=1.2178, dev_loss=1.2140, dev_acc=0.4625
-2026-03-15 02:04:32,281 - INFO - Epoch 30: train_loss=1.2169, dev_loss=1.2127, dev_acc=0.4629
-2026-03-15 02:07:24,860 - INFO - Epoch 40: train_loss=1.2162, dev_loss=1.2118, dev_acc=0.4638
-2026-03-15 02:10:17,726 - INFO - Epoch 50: train_loss=1.2158, dev_loss=1.2118, dev_acc=0.4642
-2026-03-15 02:13:11,128 - INFO - Epoch 60: train_loss=1.2153, dev_loss=1.2117, dev_acc=0.4638
-2026-03-15 02:16:03,137 - INFO - Epoch 70: train_loss=1.2152, dev_loss=1.2114, dev_acc=0.4638
-2026-03-15 02:18:55,902 - INFO - Epoch 80: train_loss=1.2149, dev_loss=1.2112, dev_acc=0.4640
-2026-03-15 02:21:49,408 - INFO - Epoch 90: train_loss=1.2148, dev_loss=1.2108, dev_acc=0.4640
-2026-03-15 02:24:41,816 - INFO - Epoch 100: train_loss=1.2145, dev_loss=1.2108, dev_acc=0.4646
-2026-03-15 02:24:43,173 - INFO - [COMBINED] Test: loss=1.2104, acc=0.4659
-2026-03-15 02:24:43,173 - INFO - 
+2026-03-16 02:07:50,256 - INFO - Loaded 885565 samples
+2026-03-16 02:07:54,673 - INFO - Loaded 110687 samples
+2026-03-16 02:07:58,932 - INFO - Loaded 109178 samples
+2026-03-16 02:09:30,066 - INFO - Epoch 10: train_loss=0.8205, dev_loss=0.8188, dev_acc=0.6430
+2026-03-16 02:11:01,413 - INFO - Epoch 20: train_loss=0.8133, dev_loss=0.8123, dev_acc=0.6472
+2026-03-16 02:12:32,746 - INFO - Epoch 30: train_loss=0.8088, dev_loss=0.8062, dev_acc=0.6497
+2026-03-16 02:14:04,302 - INFO - Epoch 40: train_loss=0.8055, dev_loss=0.8020, dev_acc=0.6518
+2026-03-16 02:15:35,392 - INFO - Epoch 50: train_loss=0.8032, dev_loss=0.7992, dev_acc=0.6517
+2026-03-16 02:17:06,388 - INFO - Epoch 60: train_loss=0.8017, dev_loss=0.7972, dev_acc=0.6527
+2026-03-16 02:18:37,459 - INFO - Epoch 70: train_loss=0.8003, dev_loss=0.7950, dev_acc=0.6537
+2026-03-16 02:20:08,512 - INFO - Epoch 80: train_loss=0.7991, dev_loss=0.7929, dev_acc=0.6548
+2026-03-16 02:21:39,516 - INFO - Epoch 90: train_loss=0.7983, dev_loss=0.7932, dev_acc=0.6545
+2026-03-16 02:23:10,822 - INFO - Epoch 100: train_loss=0.7976, dev_loss=0.7933, dev_acc=0.6550
+2026-03-16 02:23:11,451 - INFO - [COMBINED] Test: loss=0.7898, acc=0.6548
+2026-03-16 02:23:11,451 - INFO - 
 ==================================================
 SUMMARY
 ==================================================
-2026-03-15 02:24:43,174 - INFO - segmental    | Loss: 1.2196 | Acc: 0.4599
-2026-03-15 02:24:43,174 - INFO - prosodic     | Loss: 1.3272 | Acc: 0.3759
-2026-03-15 02:24:43,174 - INFO - combined     | Loss: 1.2104 | Acc: 0.4659
-2026-03-15 02:24:43,174 - INFO - 
-Info gain from prosody: 0.0092 nats
-2026-03-15 02:24:43,174 - INFO - Info gain from segmental: 0.1168 nats
+2026-03-16 02:23:11,451 - INFO - segmental    | Loss: 1.0104 | Acc: 0.5055
+2026-03-16 02:23:11,451 - INFO - prosodic     | Loss: 0.8426 | Acc: 0.6263
+2026-03-16 02:23:11,451 - INFO - combined     | Loss: 0.7898 | Acc: 0.6548
+2026-03-16 02:23:11,451 - INFO - 
+Info gain from prosody: 0.2206 nats
+2026-03-16 02:23:11,451 - INFO - Info gain from segmental: 0.0527 nats
