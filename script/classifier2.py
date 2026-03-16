@@ -25,12 +25,78 @@ def load_segmental_embeddings(path):
                 embeddings[parts[0]] = np.array([float(x) for x in parts[1:]], dtype=np.float32)
     return embeddings
 
+# --- Tone-letter handling + IPA->seg inventory mapping ---
+
+TONE_LETTERS = set("˥˦˧˨˩")
+
+# Map tone-letter sequences to Mandarin tone categories 1-4.
+# Your f0 symbols show these four patterns:
+# ˥˩ (falling) -> 4
+# ˧˥ (rising)  -> 2
+# ˨˩˦ (dipping)-> 3
+# ˩ (low)      -> 1  (your data uses low level for tone 1; adjust if needed)
+TONELETTER_TO_TONE = {
+    "˥˩": 4,
+    "˧˥": 2,
+    "˨˩˦": 3,
+    "˩": 1,
+}
+
+# Minimal IPA nucleus mapping to your seg-vectors inventory.
+# Extend this dict as you encounter more bases.
+IPA_BASE_TO_SEG = {
+    "a": "a",
+    "e": "e",
+    "i": "i",
+    "o": "o",
+    "u": "u",
+    "aj": "ai",
+    "ej": "ei",
+    "ow": "ou",
+    "aw": "ao",   # if your system expects aw->ou, change to "ou"
+}
+
+def split_phone_and_tone(phone: str):
+    """
+    Supports either digit tones (a1..a4) or IPA tone letters (a˥˩ etc).
+    Returns (base, tone_int_1to4) or (base, None) if unknown.
+    """
+    if phone is None:
+        return None, None
+
+    # 1) Digit tone at end
+    m = re.search(r'([1-4])$', phone)
+    if m:
+        tone = int(m.group(1))
+        base = re.sub(r'[1-5]$', '', phone)  # keep your original strip range
+        return base, tone
+
+    # 2) IPA tone letters at end (possibly multiple)
+    i = len(phone)
+    while i > 0 and phone[i-1] in TONE_LETTERS:
+        i -= 1
+    base = phone[:i]
+    tone_mark = phone[i:]
+    if tone_mark:
+        tone = TONELETTER_TO_TONE.get(tone_mark)
+        return base, tone
+
+    return phone, None
+
 def extract_tone(phone):
-    match = re.search(r'([1-4])$', phone)
-    return int(match.group(1)) if match else None
+    _, tone = split_phone_and_tone(phone)
+    return tone
 
 def strip_tone(phone):
-    return re.sub(r'[1-5]$', '', phone)
+    base, _ = split_phone_and_tone(phone)
+    return base
+
+def map_base_to_seg(base: str):
+    """
+    Map a base symbol from the f0 JSON inventory to a key in seg-vectors.
+    Falls back to itself if already in seg inventory later (caller can check).
+    """
+    return IPA_BASE_TO_SEG.get(base, base)
 
 def resample_f0(contour, target_length=20):
     if not contour or len(contour) == 0:
@@ -79,8 +145,13 @@ class ToneDataset(Dataset):
                     if f0_data.get('mean') is None or not contour or not any(v > 0 for v in contour):
                         continue
                     
-                    base = strip_tone(phone)
-                    seg_vec = seg_embeddings.get(base, np.zeros(self.seg_dim, dtype=np.float32))
+                    base_ipa = strip_tone(phone)
+                    base = map_base_to_seg(base_ipa)
+
+                    seg_vec = seg_embeddings.get(base)
+                    if seg_vec is None:
+                        # OOV -> zeros, but log occasionally so you notice mapping gaps
+                        seg_vec = np.zeros(self.seg_dim, dtype=np.float32)
                     f0_vec = normalize_f0(resample_f0(contour, f0_length))
                     
                     self.samples.append({'seg': seg_vec, 'pros': f0_vec, 'tone': tone - 1})
